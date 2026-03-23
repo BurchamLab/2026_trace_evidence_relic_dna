@@ -1,0 +1,13 @@
+
+=== Paired McNemar Test ===
+Control file: benzonase_output/source_benzonase_sink_control_predictions.csv
+Treatment file: benzonase_output/source_benzonase_sink_treatment_predictions.csv
+Paired n = 50
+Accuracy control (B):   0.760
+Accuracy treatment (A): 0.740
+Δ accuracy (A - B):     -0.020
+Discordant pairs:
+  b = control correct, treatment wrong = 9
+  c = control wrong, treatment correct = 8
+McNemar exact p-value (two-sided): 1
+Wrote paired table: benzonase_output/paired_control_vs_treatment_predictions.csv
