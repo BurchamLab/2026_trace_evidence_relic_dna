@@ -1,0 +1,26 @@
+
+=== Paired McNemar Test ===
+Control file: control_output/source_control_sink_control_predictions.csv
+Treatment file: control_output/source_control_sink_treatment_predictions.csv
+Paired n = 47
+Accuracy control (B):   0.936
+Accuracy treatment (A): 0.915
+Δ accuracy (A - B):     -0.021
+Discordant pairs:
+  b = control correct, treatment wrong = 4
+  c = control wrong, treatment correct = 3
+McNemar exact p-value (two-sided): 1
+Wrote paired table: control_output/paired_control_vs_treatment_predictions.csv
+
+=== Paired McNemar Test ===
+Control file: control_output/source_control_sink_control_predictions.csv
+Treatment file: control_output/source_control_sink_treatment_predictions.csv
+Paired n = 47
+Accuracy control (B):   0.936
+Accuracy treatment (A): 0.915
+Δ accuracy (A - B):     -0.021
+Discordant pairs:
+  b = control correct, treatment wrong = 4
+  c = control wrong, treatment correct = 3
+McNemar exact p-value (two-sided): 1
+Wrote paired table: control_output/paired_control_vs_treatment_predictions.csv

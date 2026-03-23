@@ -1,0 +1,46 @@
+Step 1.5:Loaded taxonomy table: taxonomy.tsv (92642 features)
+Pseudocount = 1.0
+Best Params: {'colsample_bytree': 0.8, 'gamma': 0.0, 'learning_rate': 0.05, 'max_depth': 3, 'min_child_weight': 1, 'n_estimators': 500, 'subsample': 0.8}
+Best CV balanced_accuracy (source LOGO): 0.975000
+Model saved to control_output/control_best_estimator.pkl
+
+Treatment sink
+Accuracy: 0.901961
+Balanced accuracy: 0.899600
+Macro-F1: 0.905447
+              precision    recall  f1-score   support
+
+  location_A      1.000     0.857     0.923        14
+  location_B      1.000     0.923     0.960        13
+  location_C      0.722     1.000     0.839        13
+  location_D      1.000     0.818     0.900        11
+
+    accuracy                          0.902        51
+   macro avg      0.931     0.900     0.905        51
+weighted avg      0.929     0.902     0.906        51
+
+
+Control sink
+Accuracy: 0.936170
+Balanced accuracy: 0.937209
+Macro-F1: 0.937226
+              precision    recall  f1-score   support
+
+  location_A      1.000     0.917     0.957        12
+  location_B      1.000     0.923     0.960        13
+  location_C      0.786     1.000     0.880        11
+  location_D      1.000     0.909     0.952        11
+
+    accuracy                          0.936        47
+   macro avg      0.946     0.937     0.937        47
+weighted avg      0.950     0.936     0.939        47
+
+
+Observed LOGO CV balanced_accuracy mean = 0.975000
+
+Permutation test results (within-day label shuffle):
+Observed mean bal_acc = 0.975000
+Null mean bal_acc     = 0.243143
+Null max bal_acc      = 0.525000
+p-value (>= obs)      = 0.001
+Saved permutation null distribution to control_output/control_permtest_within_day_balacc.csv
