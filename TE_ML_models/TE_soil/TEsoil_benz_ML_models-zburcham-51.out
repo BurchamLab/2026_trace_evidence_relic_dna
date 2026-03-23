@@ -1,0 +1,93 @@
+Running scripts using 16 threads
+Step 1: Loaded feature table and metadata.
+Loaded taxonomy table: taxonomy.tsv (92642 features)
+Step 2: Split into source and sink.
+Step 3: Using pseudocount = 1.0
+Step 3: Applied CLR transformation.
+Step 4: Labels encoded. Classes = ['location_A', 'location_B', 'location_C', 'location_D']
+Step 5: Configured GridSearchCV (scoring=balanced_accuracy).
+Step 6: Fitting GridSearchCV...
+Best Params: {'colsample_bytree': 0.8, 'gamma': 0.0, 'learning_rate': 0.05, 'max_depth': 3, 'min_child_weight': 3, 'n_estimators': 500, 'subsample': 0.8}
+Best CV balanced_accuracy (source LOGO): 1.000
+Model saved to benzonase_output/benzonase_best_estimator.pkl
+Model fitting/loading complete.
+Step 7: Predicting on sink samples...
+Predicted on sink samples.
+Step 8: Evaluating TOP-1 location calling...
+
+Treatment sink
+  Accuracy:          0.843
+  Balanced accuracy: 0.835
+  Macro-F1:          0.833
+              precision    recall  f1-score   support
+
+  location_A      0.923     0.857     0.889        14
+  location_B      0.857     0.923     0.889        13
+  location_C      0.857     0.923     0.889        13
+  location_D      0.700     0.636     0.667        11
+
+    accuracy                          0.843        51
+   macro avg      0.834     0.835     0.833        51
+weighted avg      0.841     0.843     0.841        51
+
+
+Control sink
+  Accuracy:          0.979
+  Balanced accuracy: 0.979
+  Macro-F1:          0.978
+              precision    recall  f1-score   support
+
+  location_A      1.000     0.917     0.957        12
+  location_B      1.000     1.000     1.000        13
+  location_C      1.000     1.000     1.000        11
+  location_D      0.917     1.000     0.957        11
+
+    accuracy                          0.979        47
+   macro avg      0.979     0.979     0.978        47
+weighted avg      0.980     0.979     0.979        47
+
+Evaluated predictions.
+Plotting confusion matrices...
+Generated figures.
+
+Permutation test setup:
+Observed LOGO CV balanced_accuracy mean = 1.000000
+  completed 50/999 permutations
+  completed 100/999 permutations
+  completed 150/999 permutations
+  completed 200/999 permutations
+  completed 250/999 permutations
+  completed 300/999 permutations
+  completed 350/999 permutations
+  completed 400/999 permutations
+  completed 450/999 permutations
+  completed 500/999 permutations
+  completed 550/999 permutations
+  completed 600/999 permutations
+  completed 650/999 permutations
+  completed 700/999 permutations
+  completed 750/999 permutations
+  completed 800/999 permutations
+  completed 850/999 permutations
+  completed 900/999 permutations
+  completed 950/999 permutations
+
+Permutation test results (within-day label shuffle):
+Observed mean bal_acc = 1.000000
+Null mean bal_acc     = 0.248473
+Null max bal_acc      = 0.600000
+p-value (>= obs)      = 0.001
+Saved permutation null distribution to benzonase_output/benzonase_permtest_within_day_balacc.csv
+
+=== Paired McNemar Test ===
+Control file: benzonase_output/source_benzonase_sink_control_predictions.csv
+Treatment file: benzonase_output/source_benzonase_sink_treatment_predictions.csv
+Paired n = 47
+Accuracy control (B):   0.979
+Accuracy treatment (A): 0.872
+Δ accuracy (A - B):     -0.106
+Discordant pairs:
+  b = control correct, treatment wrong = 6
+  c = control wrong, treatment correct = 1
+McNemar exact p-value (two-sided): 0.125
+Wrote paired table: benzonase_output/paired_control_vs_treatment_predictions.csv

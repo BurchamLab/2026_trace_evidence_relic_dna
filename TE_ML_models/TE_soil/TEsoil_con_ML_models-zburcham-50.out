@@ -1,0 +1,93 @@
+Running scripts using 16 threads
+Step 1: Loaded feature table and metadata.
+Loaded taxonomy table: taxonomy.tsv (92642 features)
+Step 2: Split into source and sink.
+Step 3: Using pseudocount = 1.0
+Step 3: Applied CLR transformation.
+Step 4: Labels encoded. Classes = ['location_A', 'location_B', 'location_C', 'location_D']
+Step 5: Configured GridSearchCV (scoring=balanced_accuracy).
+Step 6: Fitting GridSearchCV...
+Best Params: {'colsample_bytree': 0.8, 'gamma': 0.0, 'learning_rate': 0.05, 'max_depth': 3, 'min_child_weight': 1, 'n_estimators': 500, 'subsample': 0.8}
+Best CV balanced_accuracy (source LOGO): 0.975
+Model saved to control_output/control_best_estimator.pkl
+Model fitting/loading complete.
+Step 7: Predicting on sink samples...
+Predicted on sink samples.
+Step 8: Evaluating TOP-1 location calling...
+
+Treatment sink
+  Accuracy:          0.902
+  Balanced accuracy: 0.900
+  Macro-F1:          0.905
+              precision    recall  f1-score   support
+
+  location_A      1.000     0.857     0.923        14
+  location_B      1.000     0.923     0.960        13
+  location_C      0.722     1.000     0.839        13
+  location_D      1.000     0.818     0.900        11
+
+    accuracy                          0.902        51
+   macro avg      0.931     0.900     0.905        51
+weighted avg      0.929     0.902     0.906        51
+
+
+Control sink
+  Accuracy:          0.936
+  Balanced accuracy: 0.937
+  Macro-F1:          0.937
+              precision    recall  f1-score   support
+
+  location_A      1.000     0.917     0.957        12
+  location_B      1.000     0.923     0.960        13
+  location_C      0.786     1.000     0.880        11
+  location_D      1.000     0.909     0.952        11
+
+    accuracy                          0.936        47
+   macro avg      0.946     0.937     0.937        47
+weighted avg      0.950     0.936     0.939        47
+
+Evaluated predictions.
+Plotting confusion matrices...
+Generated figures.
+
+Permutation test setup:
+Observed LOGO CV balanced_accuracy mean = 0.975000
+  completed 50/999 permutations
+  completed 100/999 permutations
+  completed 150/999 permutations
+  completed 200/999 permutations
+  completed 250/999 permutations
+  completed 300/999 permutations
+  completed 350/999 permutations
+  completed 400/999 permutations
+  completed 450/999 permutations
+  completed 500/999 permutations
+  completed 550/999 permutations
+  completed 600/999 permutations
+  completed 650/999 permutations
+  completed 700/999 permutations
+  completed 750/999 permutations
+  completed 800/999 permutations
+  completed 850/999 permutations
+  completed 900/999 permutations
+  completed 950/999 permutations
+
+Permutation test results (within-day label shuffle):
+Observed mean bal_acc = 0.975000
+Null mean bal_acc     = 0.243143
+Null max bal_acc      = 0.525000
+p-value (>= obs)      = 0.001
+Saved permutation null distribution to control_output/control_permtest_within_day_balacc.csv
+
+=== Paired McNemar Test ===
+Control file: control_output/source_control_sink_control_predictions.csv
+Treatment file: control_output/source_control_sink_treatment_predictions.csv
+Paired n = 47
+Accuracy control (B):   0.936
+Accuracy treatment (A): 0.915
+Δ accuracy (A - B):     -0.021
+Discordant pairs:
+  b = control correct, treatment wrong = 4
+  c = control wrong, treatment correct = 3
+McNemar exact p-value (two-sided): 1
+Wrote paired table: control_output/paired_control_vs_treatment_predictions.csv
