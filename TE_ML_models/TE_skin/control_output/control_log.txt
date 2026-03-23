@@ -1,0 +1,19 @@
+Loaded bundle from control_output/control_best_estimator.pkl
+Step 1.5:Loaded taxonomy table: taxonomy.tsv (92642 features)
+Pseudocount = 1.0
+Step 4: Encoded labels. n_classes = 25
+CV: using donor-stratified grouped splits with n_splits=2 (min groups per donor = 2)
+Step 6: Predict mode (bundle loaded; model/preproc confirmed).
+Loaded best_params: {'colsample_bytree': 0.8, 'gamma': 0.0, 'learning_rate': 0.05, 'max_depth': 3, 'min_child_weight': 1, 'n_estimators': 500, 'subsample': 0.8}
+PVC benzonase Top-3 accuracy: 0.580
+PVC control   Top-3 accuracy: 0.820
+PVC benzonase Top-3 accuracy: 0.680
+PVC control   Top-3 accuracy: 0.860
+PVC benzonase Top-5 accuracy: 0.760
+PVC control   Top-5 accuracy: 0.900
+Accuracy on PVC benzonase: 0.420
+PVC benzonase Macro AUC (OvR): 0.828
+PVC benzonase Balanced accuracy: 0.420 | Macro-F1: 0.447
+Accuracy on PVC control: 0.620
+PVC control Macro AUC (OvR): 0.908
+PVC control   Balanced accuracy: 0.620 | Macro-F1: 0.623
