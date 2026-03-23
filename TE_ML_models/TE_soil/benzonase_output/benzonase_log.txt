@@ -1,0 +1,46 @@
+Step 1.5:Loaded taxonomy table: taxonomy.tsv (92642 features)
+Pseudocount = 1.0
+Best Params: {'colsample_bytree': 0.8, 'gamma': 0.0, 'learning_rate': 0.05, 'max_depth': 3, 'min_child_weight': 3, 'n_estimators': 500, 'subsample': 0.8}
+Best CV balanced_accuracy (source LOGO): 1.000000
+Model saved to benzonase_output/benzonase_best_estimator.pkl
+
+Treatment sink
+Accuracy: 0.843137
+Balanced accuracy: 0.834915
+Macro-F1: 0.833333
+              precision    recall  f1-score   support
+
+  location_A      0.923     0.857     0.889        14
+  location_B      0.857     0.923     0.889        13
+  location_C      0.857     0.923     0.889        13
+  location_D      0.700     0.636     0.667        11
+
+    accuracy                          0.843        51
+   macro avg      0.834     0.835     0.833        51
+weighted avg      0.841     0.843     0.841        51
+
+
+Control sink
+Accuracy: 0.978723
+Balanced accuracy: 0.979167
+Macro-F1: 0.978261
+              precision    recall  f1-score   support
+
+  location_A      1.000     0.917     0.957        12
+  location_B      1.000     1.000     1.000        13
+  location_C      1.000     1.000     1.000        11
+  location_D      0.917     1.000     0.957        11
+
+    accuracy                          0.979        47
+   macro avg      0.979     0.979     0.978        47
+weighted avg      0.980     0.979     0.979        47
+
+
+Observed LOGO CV balanced_accuracy mean = 1.000000
+
+Permutation test results (within-day label shuffle):
+Observed mean bal_acc = 1.000000
+Null mean bal_acc     = 0.248473
+Null max bal_acc      = 0.600000
+p-value (>= obs)      = 0.001
+Saved permutation null distribution to benzonase_output/benzonase_permtest_within_day_balacc.csv
