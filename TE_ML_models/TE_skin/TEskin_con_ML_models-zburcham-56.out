@@ -1,0 +1,285 @@
+Running scripts using 16 threads
+Running XGBoost for control
+Step 1: Loaded feature table and metadata.
+Loaded taxonomy table: taxonomy.tsv (92642 features)
+Counts: source(skin)= 50 sink(pvc control)= 50 sink(pvc benzonase)= 50
+Step 3: Using pseudocount = 1.0
+Step 3: Applied CLR transformation.
+Step 4: Encoded labels. n_classes = 25
+CV: using donor-stratified grouped splits with n_splits=2 (min groups per donor = 2)
+Step 5: Configured XGBoost.
+Step 6: Fitting GridSearchCV...
+Best Params: {'colsample_bytree': 0.8, 'gamma': 0.0, 'learning_rate': 0.05, 'max_depth': 3, 'min_child_weight': 1, 'n_estimators': 500, 'subsample': 0.8}
+Best CV balanced_accuracy (source SKG): 0.120
+Model saved to control_output/control_best_estimator.pkl
+Model fitting/loading complete.
+Step 7: Predicting on sink samples...
+Predicted on sink samples.
+Step 8: Evaluating predictions....
+Accuracy on PVC benzonase: 0.420
+PVC benzonase Macro AUC (OvR): 0.828
+PVC benzonase Balanced accuracy: 0.420 | Macro-F1: 0.447
+Accuracy on PVC control: 0.620
+PVC control Macro AUC (OvR): 0.908
+PVC control   Balanced accuracy: 0.620 | Macro-F1: 0.623
+PVC benzonase Top-2 accuracy: 0.580
+PVC control   Top-2 accuracy: 0.820
+PVC benzonase Top-3 accuracy: 0.680
+PVC control   Top-3 accuracy: 0.860
+PVC benzonase Top-5 accuracy: 0.760
+PVC control   Top-5 accuracy: 0.900
+
+Reject option using margin = p_top1 - p_top2
+  thr=0.00 | benzonase: coverage=1.000 (50/50), acc_kept=0.420 | control: coverage=1.000 (50/50), acc_kept=0.620
+  thr=0.05 | benzonase: coverage=0.700 (35/50), acc_kept=0.486 | control: coverage=0.720 (36/50), acc_kept=0.611
+  thr=0.10 | benzonase: coverage=0.520 (26/50), acc_kept=0.538 | control: coverage=0.600 (30/50), acc_kept=0.600
+  thr=0.15 | benzonase: coverage=0.360 (18/50), acc_kept=0.444 | control: coverage=0.420 (21/50), acc_kept=0.619
+  thr=0.20 | benzonase: coverage=0.280 (14/50), acc_kept=0.500 | control: coverage=0.300 (15/50), acc_kept=0.667
+
+Reject option using p_top1
+  thr=0.10 | benzonase: coverage=0.860 (43/50), acc_kept=0.465 | control: coverage=0.900 (45/50), acc_kept=0.644
+  thr=0.20 | benzonase: coverage=0.440 (22/50), acc_kept=0.500 | control: coverage=0.460 (23/50), acc_kept=0.565
+  thr=0.30 | benzonase: coverage=0.200 (10/50), acc_kept=0.400 | control: coverage=0.240 (12/50), acc_kept=0.583
+  thr=0.40 | benzonase: coverage=0.140 (7/50), acc_kept=0.143 | control: coverage=0.200 (10/50), acc_kept=0.500
+  thr=0.50 | benzonase: coverage=0.020 (1/50), acc_kept=1.000 | control: coverage=0.080 (4/50), acc_kept=0.500
+Evaluated predictions.
+Step 9: Generating figures...
+Plotting confusion matrices...
+Plotting top feature importances...
+Generated figures.
+Step 9: Starting permutation test...
+
+Permutation test setup (global label shuffle):
+Observed CV balanced_accuracy mean = 0.120000
+  completed 50/999 permutations
+  completed 100/999 permutations
+  completed 150/999 permutations
+  completed 200/999 permutations
+  completed 250/999 permutations
+  completed 300/999 permutations
+  completed 350/999 permutations
+  completed 400/999 permutations
+  completed 450/999 permutations
+  completed 500/999 permutations
+  completed 550/999 permutations
+  completed 600/999 permutations
+  completed 650/999 permutations
+  completed 700/999 permutations
+  completed 750/999 permutations
+  completed 800/999 permutations
+  completed 850/999 permutations
+  completed 900/999 permutations
+  completed 950/999 permutations
+
+Permutation test results (global label shuffle):
+Observed mean bal_acc = 0.120000
+Null mean bal_acc     = 0.013424
+Null max bal_acc      = 0.111111
+p-value (>= obs)      = 0.001
+Saved permutation null distribution to control_output/control_permtest_balacc.csv
+Loaded bundle from control_output/control_best_estimator.pkl
+Step 1: Loaded feature table and metadata.
+Loaded taxonomy table: taxonomy.tsv (92642 features)
+Counts: source(skin)= 50 sink(pvc control)= 50 sink(pvc benzonase)= 50
+Step 3: Using pseudocount = 1.0
+Step 3: Applied CLR transformation.
+Step 4: Encoded labels. n_classes = 25
+CV: using donor-stratified grouped splits with n_splits=2 (min groups per donor = 2)
+Step 5: Configured XGBoost.
+Step 6: Predict mode (bundle loaded; model/preproc confirmed).
+Loaded best_params: {'colsample_bytree': 0.8, 'gamma': 0.0, 'learning_rate': 0.05, 'max_depth': 3, 'min_child_weight': 1, 'n_estimators': 500, 'subsample': 0.8}
+Model fitting/loading complete.
+Step 7: Predicting on sink samples...
+Predicted on sink samples.
+Step 8: Evaluating predictions....
+Accuracy on PVC benzonase: 0.420
+PVC benzonase Macro AUC (OvR): 0.828
+PVC benzonase Balanced accuracy: 0.420 | Macro-F1: 0.447
+Accuracy on PVC control: 0.620
+PVC control Macro AUC (OvR): 0.908
+PVC control   Balanced accuracy: 0.620 | Macro-F1: 0.623
+PVC benzonase Top-2 accuracy: 0.580
+PVC control   Top-2 accuracy: 0.820
+PVC benzonase Top-3 accuracy: 0.680
+PVC control   Top-3 accuracy: 0.860
+PVC benzonase Top-5 accuracy: 0.760
+PVC control   Top-5 accuracy: 0.900
+
+Reject option using margin = p_top1 - p_top2
+  thr=0.00 | benzonase: coverage=1.000 (50/50), acc_kept=0.420 | control: coverage=1.000 (50/50), acc_kept=0.620
+  thr=0.05 | benzonase: coverage=0.700 (35/50), acc_kept=0.486 | control: coverage=0.720 (36/50), acc_kept=0.611
+  thr=0.10 | benzonase: coverage=0.520 (26/50), acc_kept=0.538 | control: coverage=0.600 (30/50), acc_kept=0.600
+  thr=0.15 | benzonase: coverage=0.360 (18/50), acc_kept=0.444 | control: coverage=0.420 (21/50), acc_kept=0.619
+  thr=0.20 | benzonase: coverage=0.280 (14/50), acc_kept=0.500 | control: coverage=0.300 (15/50), acc_kept=0.667
+
+Reject option using p_top1
+  thr=0.10 | benzonase: coverage=0.860 (43/50), acc_kept=0.465 | control: coverage=0.900 (45/50), acc_kept=0.644
+  thr=0.20 | benzonase: coverage=0.440 (22/50), acc_kept=0.500 | control: coverage=0.460 (23/50), acc_kept=0.565
+  thr=0.30 | benzonase: coverage=0.200 (10/50), acc_kept=0.400 | control: coverage=0.240 (12/50), acc_kept=0.583
+  thr=0.40 | benzonase: coverage=0.140 (7/50), acc_kept=0.143 | control: coverage=0.200 (10/50), acc_kept=0.500
+  thr=0.50 | benzonase: coverage=0.020 (1/50), acc_kept=1.000 | control: coverage=0.080 (4/50), acc_kept=0.500
+Evaluated predictions.
+Step 9: Generating figures...
+Plotting confusion matrices...
+Plotting top feature importances...
+Generated figures.
+Running top-3 paried test
+
+=== Paired McNemar Test ===
+Control file: control_output/source_control_sink_control_predictions.csv
+Treatment file: control_output/source_control_sink_treatment_predictions.csv
+Paired n = 50
+Accuracy control (B):   0.860
+Accuracy treatment (A): 0.680
+Δ accuracy (A - B):     -0.180
+Discordant pairs:
+  b = control correct, treatment wrong = 11
+  c = control wrong, treatment correct = 2
+McNemar exact p-value (two-sided): 0.0224609
+Wrote paired table: control_output/paired_control_vs_treatment_predictions.csv
+Plotting Top-3 inclusion heatmaps...
+Wrote: control_output/control_top3_inclusion_control.pdf and control_output/control_top3_inclusion_treatment.pdf
+Plotting Top-3 recall barplot...
+Plotting Top-1 vs Top-3 vs Top-5 barplot...
+Running XGBoost for benzonase
+Step 1: Loaded feature table and metadata.
+Loaded taxonomy table: taxonomy.tsv (92642 features)
+Counts: source(skin)= 50 sink(pvc control)= 50 sink(pvc benzonase)= 50
+Step 3: Using pseudocount = 1.0
+Step 3: Applied CLR transformation.
+Step 4: Encoded labels. n_classes = 25
+CV: using donor-stratified grouped splits with n_splits=2 (min groups per donor = 2)
+Step 5: Configured XGBoost.
+Step 6: Fitting GridSearchCV...
+Best Params: {'colsample_bytree': 0.8, 'gamma': 0.0, 'learning_rate': 0.05, 'max_depth': 3, 'min_child_weight': 1, 'n_estimators': 500, 'subsample': 0.8}
+Best CV balanced_accuracy (source SKG): 0.080
+Model saved to benzonase_output/benzonase_best_estimator.pkl
+Model fitting/loading complete.
+Step 7: Predicting on sink samples...
+Predicted on sink samples.
+Step 8: Evaluating predictions....
+Accuracy on PVC benzonase: 0.560
+PVC benzonase Macro AUC (OvR): 0.864
+PVC benzonase Balanced accuracy: 0.560 | Macro-F1: 0.574
+Accuracy on PVC control: 0.640
+PVC control Macro AUC (OvR): 0.910
+PVC control   Balanced accuracy: 0.640 | Macro-F1: 0.608
+PVC benzonase Top-2 accuracy: 0.620
+PVC control   Top-2 accuracy: 0.720
+PVC benzonase Top-3 accuracy: 0.740
+PVC control   Top-3 accuracy: 0.760
+PVC benzonase Top-5 accuracy: 0.840
+PVC control   Top-5 accuracy: 0.820
+
+Reject option using margin = p_top1 - p_top2
+  thr=0.00 | benzonase: coverage=1.000 (50/50), acc_kept=0.560 | control: coverage=1.000 (50/50), acc_kept=0.640
+  thr=0.05 | benzonase: coverage=0.520 (26/50), acc_kept=0.769 | control: coverage=0.600 (30/50), acc_kept=0.833
+  thr=0.10 | benzonase: coverage=0.440 (22/50), acc_kept=0.818 | control: coverage=0.460 (23/50), acc_kept=0.870
+  thr=0.15 | benzonase: coverage=0.360 (18/50), acc_kept=0.778 | control: coverage=0.340 (17/50), acc_kept=0.824
+  thr=0.20 | benzonase: coverage=0.280 (14/50), acc_kept=0.714 | control: coverage=0.220 (11/50), acc_kept=0.909
+
+Reject option using p_top1
+  thr=0.10 | benzonase: coverage=0.640 (32/50), acc_kept=0.688 | control: coverage=0.740 (37/50), acc_kept=0.811
+  thr=0.20 | benzonase: coverage=0.420 (21/50), acc_kept=0.714 | control: coverage=0.460 (23/50), acc_kept=0.870
+  thr=0.30 | benzonase: coverage=0.260 (13/50), acc_kept=0.692 | control: coverage=0.220 (11/50), acc_kept=0.909
+  thr=0.40 | benzonase: coverage=0.180 (9/50), acc_kept=0.556 | control: coverage=0.120 (6/50), acc_kept=0.833
+  thr=0.50 | benzonase: coverage=0.000 (0/50), acc_kept=nan | control: coverage=0.000 (0/50), acc_kept=nan
+Evaluated predictions.
+Step 9: Generating figures...
+Plotting confusion matrices...
+Plotting top feature importances...
+Generated figures.
+Step 9: Starting permutation test...
+
+Permutation test setup (global label shuffle):
+Observed CV balanced_accuracy mean = 0.080000
+  completed 50/999 permutations
+  completed 100/999 permutations
+  completed 150/999 permutations
+  completed 200/999 permutations
+  completed 250/999 permutations
+  completed 300/999 permutations
+  completed 350/999 permutations
+  completed 400/999 permutations
+  completed 450/999 permutations
+  completed 500/999 permutations
+  completed 550/999 permutations
+  completed 600/999 permutations
+  completed 650/999 permutations
+  completed 700/999 permutations
+  completed 750/999 permutations
+  completed 800/999 permutations
+  completed 850/999 permutations
+  completed 900/999 permutations
+  completed 950/999 permutations
+
+Permutation test results (global label shuffle):
+Observed mean bal_acc = 0.080000
+Null mean bal_acc     = 0.012134
+Null max bal_acc      = 0.105263
+p-value (>= obs)      = 0.004
+Saved permutation null distribution to benzonase_output/benzonase_permtest_balacc.csv
+Loaded bundle from benzonase_output/benzonase_best_estimator.pkl
+Step 1: Loaded feature table and metadata.
+Loaded taxonomy table: taxonomy.tsv (92642 features)
+Counts: source(skin)= 50 sink(pvc control)= 50 sink(pvc benzonase)= 50
+Step 3: Using pseudocount = 1.0
+Step 3: Applied CLR transformation.
+Step 4: Encoded labels. n_classes = 25
+CV: using donor-stratified grouped splits with n_splits=2 (min groups per donor = 2)
+Step 5: Configured XGBoost.
+Step 6: Predict mode (bundle loaded; model/preproc confirmed).
+Loaded best_params: {'colsample_bytree': 0.8, 'gamma': 0.0, 'learning_rate': 0.05, 'max_depth': 3, 'min_child_weight': 1, 'n_estimators': 500, 'subsample': 0.8}
+Model fitting/loading complete.
+Step 7: Predicting on sink samples...
+Predicted on sink samples.
+Step 8: Evaluating predictions....
+Accuracy on PVC benzonase: 0.560
+PVC benzonase Macro AUC (OvR): 0.864
+PVC benzonase Balanced accuracy: 0.560 | Macro-F1: 0.574
+Accuracy on PVC control: 0.640
+PVC control Macro AUC (OvR): 0.910
+PVC control   Balanced accuracy: 0.640 | Macro-F1: 0.608
+PVC benzonase Top-2 accuracy: 0.620
+PVC control   Top-2 accuracy: 0.720
+PVC benzonase Top-3 accuracy: 0.740
+PVC control   Top-3 accuracy: 0.760
+PVC benzonase Top-5 accuracy: 0.840
+PVC control   Top-5 accuracy: 0.820
+
+Reject option using margin = p_top1 - p_top2
+  thr=0.00 | benzonase: coverage=1.000 (50/50), acc_kept=0.560 | control: coverage=1.000 (50/50), acc_kept=0.640
+  thr=0.05 | benzonase: coverage=0.520 (26/50), acc_kept=0.769 | control: coverage=0.600 (30/50), acc_kept=0.833
+  thr=0.10 | benzonase: coverage=0.440 (22/50), acc_kept=0.818 | control: coverage=0.460 (23/50), acc_kept=0.870
+  thr=0.15 | benzonase: coverage=0.360 (18/50), acc_kept=0.778 | control: coverage=0.340 (17/50), acc_kept=0.824
+  thr=0.20 | benzonase: coverage=0.280 (14/50), acc_kept=0.714 | control: coverage=0.220 (11/50), acc_kept=0.909
+
+Reject option using p_top1
+  thr=0.10 | benzonase: coverage=0.640 (32/50), acc_kept=0.688 | control: coverage=0.740 (37/50), acc_kept=0.811
+  thr=0.20 | benzonase: coverage=0.420 (21/50), acc_kept=0.714 | control: coverage=0.460 (23/50), acc_kept=0.870
+  thr=0.30 | benzonase: coverage=0.260 (13/50), acc_kept=0.692 | control: coverage=0.220 (11/50), acc_kept=0.909
+  thr=0.40 | benzonase: coverage=0.180 (9/50), acc_kept=0.556 | control: coverage=0.120 (6/50), acc_kept=0.833
+  thr=0.50 | benzonase: coverage=0.000 (0/50), acc_kept=nan | control: coverage=0.000 (0/50), acc_kept=nan
+Evaluated predictions.
+Step 9: Generating figures...
+Plotting confusion matrices...
+Plotting top feature importances...
+Generated figures.
+Running top-3 paried test
+
+=== Paired McNemar Test ===
+Control file: benzonase_output/source_benzonase_sink_control_predictions.csv
+Treatment file: benzonase_output/source_benzonase_sink_treatment_predictions.csv
+Paired n = 50
+Accuracy control (B):   0.760
+Accuracy treatment (A): 0.740
+Δ accuracy (A - B):     -0.020
+Discordant pairs:
+  b = control correct, treatment wrong = 9
+  c = control wrong, treatment correct = 8
+McNemar exact p-value (two-sided): 1
+Wrote paired table: benzonase_output/paired_control_vs_treatment_predictions.csv
+Plotting Top-3 inclusion heatmaps...
+Wrote: benzonase_output/benzonase_top3_inclusion_control.pdf and benzonase_output/benzonase_top3_inclusion_treatment.pdf
+Plotting Top-3 recall barplot...
+Plotting Top-1 vs Top-3 vs Top-5 barplot...
