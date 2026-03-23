@@ -1,4 +1,4 @@
-Analysis scripts for Cantrell et al. (2026) "Supervised machine learning enables source attribution using forensic microbiome trace evidence in soil and human touch samples despite relic DNA".
+Analysis scripts for Cantrell et al. (2026) "Supervised machine learning enables forensic microbiome source attribution in soil and touch samples with evidence-type-specific relic DNA effects".
 
 Microbiome data processing was performed using the qiime2-amplicon-2025.4 conda environment (https://library.qiime2.org/quickstart/amplicon).
 
